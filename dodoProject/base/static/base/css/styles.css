@@ -26,4 +26,30 @@ img{
 .balk a:hover {
     text-decoration: underline;
   }
+
+  .messages {
+    width: 16rem;
+    height: 4rem;
+    text-align: center;
+    background-color: green;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+}
+
+.approve{
+    text-decoration: none;
+    color: green;
+}
+.approve:hover{
+    color: black;
+    background-color: green;
+}
+.deny{
+    text-decoration: none;
+    color: red;
+}
+.deny:hover{
+    color: black;
+    background-color: red;
+}
  

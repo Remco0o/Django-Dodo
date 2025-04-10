@@ -4,8 +4,13 @@
         <img class = "plaatje" src="{% static "base\img\dodo.png"%}" alt="TEKST">
 
         <div class="naam">WUR<br>Dodo Klonen</div>
+        <a class ="url_menu" href="{% url "index"%}">Home</a>
         {% if user.is_authenticated %}
-            <a class ="url_menu" href="{% url "index"%}">Home</a>
+            {% if user.is_staff %}
+                <a class ="url_menu" href="{% url "unapproved_dead"%}"> Unapproved Deads</a>
+                <a class ="url_menu" href="{% url "add_dodo"%}"> New Dodo's</a>
+            {% endif %}
+            
             <a class ="url_menu" href="{% url 'logout_user'%}"> Log out</a>
         {% else %}
             <a class ="url_menu" href="{% url 'register'%}"> Register</a>

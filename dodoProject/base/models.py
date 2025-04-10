@@ -7,7 +7,7 @@ from django.dispatch import receiver
 class Dodo(models.Model):
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
-    alive = models.BooleanField(default=False)
+    alive = models.BooleanField(default=True)
     dead_approved = models.BooleanField(default=False)
     dead_approved_by = models.ForeignKey(User, on_delete=models.CASCADE,
                                          related_name='approved_by', null=True, blank=True)
