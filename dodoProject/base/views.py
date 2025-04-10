@@ -6,6 +6,11 @@ from .forms import DodoForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import render
+from .models import Profile
+from django.db.models import Max
+from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm
 
 
 def index(request):
