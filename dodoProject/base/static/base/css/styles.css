@@ -1,0 +1,29 @@
+body{
+    background-color:darkseagreen;
+}
+img{
+    width: 26rem;
+}
+.balk{
+    display: flex;
+    height: 6rem;
+    background-color: darkcyan;
+    gap: 2rem;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.plaatje{
+    height: 6.3rem;
+    width: auto;
+}
+.naam{
+    font-size: 1.2rem;
+}
+.balk a {
+    text-decoration: none;
+    color: black;
+}
+.balk a:hover {
+    text-decoration: underline;
+  }
+ 

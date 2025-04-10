@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dodo's Wageningen{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'base/css/styles.css'%}">
+    {% block csslink  %}{% endblock csslink  %}
+</head>
+<body>
+    {% include "base/menu.html" %}
+
+    {% if messages %}
+    <br>
+    <div class="messages">
+        {% for message in messages %}
+        <br>{{message}}<br>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+    <br>
+    <br>
+    <br>
+</body>
+</html>
