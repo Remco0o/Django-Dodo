@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Dodo
 from .forms import DodoForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 def index(request):
@@ -25,17 +27,20 @@ def register(request):
     return render(request, "registration/register.html", context)
 
 
+@login_required
 def logout_user(request):
     logout(request)
     return redirect("login")
 
 
+@staff_member_required
 def unapproved_dead(request):
     dodos = Dodo.objects.filter(dead_approved=False, alive=False)
     context = {'dodos': dodos}
     return render(request, 'base/unapproved_dead.html', context)
 
 
+@staff_member_required
 def approve_dead(request, pk):
     dodo = Dodo.objects.get(pk=pk)
     dodo.dead_approved = True
@@ -45,6 +50,7 @@ def approve_dead(request, pk):
     return redirect("unapproved_dead")
 
 
+@staff_member_required
 def deny_dead(request, pk):
     dodo = Dodo.objects.get(pk=pk)
     dodo.alive = True
@@ -53,6 +59,7 @@ def deny_dead(request, pk):
     return redirect("unapproved_dead")
 
 
+@staff_member_required
 def add_dodo(request):
     if request.method == "POST":
         form = DodoForm(request.POST)
