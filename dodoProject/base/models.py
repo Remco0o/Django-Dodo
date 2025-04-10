@@ -23,7 +23,7 @@ class Update(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.user
+        return str(self.user.username)
 
 
 class Profile(models.Model):
