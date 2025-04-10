@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div>
+  <h2>My Updates</h2>
+  {% for update in updates %}
+    <div>
+        <span>{{ update.date }} – {{ update.dodo.name }}</span>
+        <span>
+          <a href="{% url 'edit_update' pk=update.pk %}">Edit</a> |
+          <a href="{% url 'delete_update' pk=update.pk %}">Delete</a>
+          {% if update.dodo.alive %}
+            | <a href="{% url 'report_dead' pk=update.dodo.id %}">Report Dead Dodo</a>
+          {% endif %}
+        </span>
+      <p>{{ update.description }}</p>
+    </div>
+  {% empty %}
+    <p>You haven't posted any updates yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

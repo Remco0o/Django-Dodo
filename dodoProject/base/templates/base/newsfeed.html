@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div>
+  <h2>Dodo Newsfeed</h2>
+  {% for update in updates %}
+    <div>
+      {{ update.date }} – {{ update.dodo.name }} by {{ update.user.username }}
+      <p>{{ update.description }}</p>
+    </div>
+  {% empty %}
+    <p>No updates yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

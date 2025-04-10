@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div>
+  <h2>{{ dodo.name }} reported as dead</h2>
+  <p>De dodo {{ dodo.name }} is successfully reported as dead.</p>
+  <a href="{% url 'index' %}">Back to homepage</a>
+</div>
+{% endblock %}

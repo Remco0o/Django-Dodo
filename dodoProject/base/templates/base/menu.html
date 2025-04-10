@@ -1,7 +1,7 @@
 {% load static %}
 {% block content %}
     <div class="balk">
-        <img class = "plaatje" src="{% static "base\img\dodo.png"%}" alt="TEKST">
+        <img class = "plaatje" src="{% static "base/img/dodo.png"%}" alt="TEKST">
 
         <div class="naam">WUR<br>Dodo Klonen</div>
         <a class ="url_menu" href="{% url "index"%}">Home</a>
@@ -10,8 +10,13 @@
                 <a class ="url_menu" href="{% url "unapproved_dead"%}"> Unapproved Deads</a>
                 <a class ="url_menu" href="{% url "add_dodo"%}"> New Dodo's</a>
             {% endif %}
-            
+
+            <a class="url_menu" href="{% url 'add_update' %}">Add Update</a>
+            <a class="url_menu" href="{% url 'my_updates' %}">My Updates</a>
+            <a class="url_menu" href="{% url 'newsfeed' %}">Newsfeed</a>
+            <a class="url_menu" href="{% url 'edit_profile' %}">Edit Profile</a>  
             <a class ="url_menu" href="{% url 'logout_user'%}"> Log out</a>
+
         {% else %}
             <a class ="url_menu" href="{% url 'register'%}"> Register</a>
             <a class ="url_menu" href="{% url 'login' %}"> Login</a>
